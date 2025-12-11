@@ -17,10 +17,19 @@ Each example contains:
 
 Duplicates `(facts, formula)` are removed to ensure uniqueness.  
 
-### Examples
+---
 
-```csv
-facts,formula,num_operators,gold_formula
-"a is true, b is false, c is true","a and b or c implies d",5,True
-"p is false, q is true","p or q implies r",2,False
+## Models: currently testing
 
+
+| Model                     | Parameters | Layers | Hidden Units | Attention Heads | Embedding Size | Feedforward Dim | Activation | LayerNorm Type | Attention Type | Dropout | Positional Encoding |
+|----------------------------|------------|--------|--------------|----------------|----------------|----------------|------------|----------------|----------------|---------|-------------------|
+| **gpt2**                   | 117M       | 12     | 768          | 12             | 768            | 3072           | GELU       | PostNorm       | Scaled Dot-Product | 0.1     | Learned            |
+| **gpt2-medium**            | 345M       | 24     | 1024         | 16             | 1024           | 4096           | GELU       | PostNorm       | Scaled Dot-Product | 0.1     | Learned            |
+| **EleutherAI/gpt-neo-2.7B**| 2.7B       | 32     | 2560         | 32             | 2560           | 10240          | GELU       | PreNorm        | Scaled Dot-Product | 0.1     | Sinusoidal         |
+| **EleutherAI/pythia-70m**  | 70M        | 12     | 512          | 8              | 512            | 2048           | GELU       | PreNorm        | Scaled Dot-Product | 0.1     | Sinusoidal         |
+| **EleutherAI/pythia-2.8b** | 2.8B       | 32     | 2560         | 32             | 2560           | 10240          | GELU       | PreNorm        | Scaled Dot-Product | 0.1     | Sinusoidal         |
+| **Qwen/Qwen3-4B**          | 4B         | 32     | 2560         | 32             | 2560           | 10240          | GELU       | PreNorm        | Scaled Dot-Product | 0.1     | Sinusoidal         |
+| **Qwen/Qwen2.5-Math-1.5B** | 1.5B       | 24     | 2048         | 32             | 2048           | 8192           | GELU       | PreNorm        | Scaled Dot-Product | 0.1     | Sinusoidal         |
+| **microsoft/Phi-4-mini-instruct** | 1.3B? | 24     | 2048         | 16-32          | 2048           | 8192           | GELU       | PreNorm        | Scaled Dot-Product | 0.1     | Sinusoidal         |
+| **google/gemma-3-4b**      | 4B         | 32     | 2560         | 32             | 2560           | 10240          | GELU       | PreNorm        | Scaled Dot-Product | 0.1     | Sinusoidal         |
